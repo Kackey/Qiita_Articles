@@ -1,5 +1,3 @@
-# Qiita-Sync Template
-
 Data sync repository for Qiita articles https://qiita.com/Kackey.
 Based on template repository [Qiita-Sync Template](https://github.com/ryokat3/qiita-sync-template).
 
