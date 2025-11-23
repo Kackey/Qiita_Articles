@@ -1,9 +1,8 @@
 Data sync repository for Qiita articles https://qiita.com/Kackey.
 Based on template repository [Qiita-Sync Template](https://github.com/ryokat3/qiita-sync-template).
 
-```
+
 ![Qiita Sync](https://github.com/Kackey/Qiita_Articles/actions/workflows/qiita_sync_check.yml/badge.svg)
-```
 
 Find more details in:
 
