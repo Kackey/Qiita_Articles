@@ -31,6 +31,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git config core.quotepath false
           find . -name '*.md' -not -path './.*' -exec git add {} + || true
           if ! git diff --staged --exit-code --quiet
           then
