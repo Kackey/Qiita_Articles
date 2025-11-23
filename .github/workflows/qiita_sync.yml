@@ -10,6 +10,8 @@ jobs:
   qiita_sync_check:
     name: Run qiita-sync sync
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
