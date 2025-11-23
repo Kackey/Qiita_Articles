@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
       - name: Install qiita-sync
@@ -25,14 +25,13 @@ jobs:
           qiita_sync sync .
         env: 
           QIITA_ACCESS_TOKEN: ${{ secrets.QIITA_ACCESS_TOKEN }}
-      - name: Git
+      - name: Commit and Push Changes
         run: |
-          find . -name '*.md' -not -path './.*' | xargs git add
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          find . -name '*.md' -not -path './.*' -exec git add {} + || true
           if ! git diff --staged --exit-code --quiet
           then
-            git config user.name github-actions
-            git config user.email github-actions@github.com
-            find . -name '*.md' -not -path './.*' | xargs git add
             git commit -m "updated by qiita-sync"
             git push
           fi
